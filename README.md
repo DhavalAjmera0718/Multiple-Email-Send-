@@ -1,1 +1,1 @@
-Sending Mai to Multiple Company 
+Sending Mail to Multiple Company 
