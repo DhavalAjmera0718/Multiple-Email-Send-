@@ -25,15 +25,25 @@ public class Email_Service {
 //    }
 
     public  String sendJobOpportunityEmail(List<String> emails) throws MessagingException, javax.mail.MessagingException {
-        String subject = "Exciting Job Opportunity!";
-        String message = "Dear candidate,\n\nWe are thrilled to inform you of a new job opening that matches your skills and experience! "
-                       + "Please contact us or visit our website for more information and application details.\n\nBest regards,\nRecruitment Team";
+    		
+
+    		String subject = "Seeking New Opportunities as a Java Developer";
+    		String message = "<p>Dear Sir,</p>"
+    		        + "<p>I hope this message finds you well. I am currently working at OPLInnovate as a Trainee Software Engineer, "
+    		        + "where I have gained valuable hands-on experience in software development. I am now actively seeking new opportunities "
+    		        + "to further develop my career, particularly as a Java Developer.</p>"
+    		        + "<p>With a solid foundation in Java, Spring, and related technologies, I am eager to contribute my skills to a dynamic team. "
+    		        + "I am passionate about tackling new challenges, enhancing system performance, and delivering innovative solutions.</p>"
+    		        + "<p>Please find my resume attached for your review. I would greatly appreciate the opportunity to discuss how my skills and experience "
+    		        + "align with potential openings in your organization.</p>"
+    		        + "<p>Thank you for considering my application. I look forward to hearing from you.</p>";
+
 
         for (String email : emails) {
             System.out.println("Sending job opportunity email to: " + email);
 
             // Send email logic (pseudo-code, replace with actual email service logic)
-            boolean sendEmail = CommonUtils.sendEmail(message, subject, email);  // Replace with actual email sending logic
+            boolean sendEmail = CommonUtils.sendEmailWithEmbeddedSignature(message, subject, email , CommonUtils.RESUME_PATH , CommonUtils.SIGNATURE_PATH);  // Replace with actual email sending logic
             if (sendEmail) {
                 System.out.println("Email sent successfully to " + email);
             } else {
